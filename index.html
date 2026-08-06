@@ -3,18 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Portfolio de Samakoun Kamissoko - Futur ingénieur en cybersécurité, passionné par les réseaux, l'IA et les systèmes complexes.">
-  <meta name="keywords" content="Samakoun Kamissoko, cybersécurité, ingénieur, réseaux, IA, portfolio, github, intrusion, sécurité réseau">
-  <meta name="author" content="Samakoun Kamissoko">
-
+  <meta name="description" content="Portfolio de Samakoun Kamissoko - Cybersécurité, réseaux, IA, développement web.">
   <title>Samakoun Kamissoko | Portfolio</title>
-
-  <!-- FontAwesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.1/css/all.css">
-
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
   <style>
     * {
       margin: 0;
@@ -23,20 +15,18 @@
     }
 
     body {
-      font-family: 'Inter', 'Segoe UI', sans-serif;
+      font-family: 'Inter', sans-serif;
       background: #f8fafc;
       color: #1e293b;
-      line-height: 1.7;
+      line-height: 1.6;
     }
 
-    /* ===== HEADER ===== */
     header {
       background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
       color: white;
-      padding: 4rem 2rem 3rem;
+      padding: 3rem 2rem;
       text-align: center;
       position: relative;
-      overflow: hidden;
     }
 
     header::after {
@@ -45,58 +35,62 @@
       bottom: 0;
       left: 0;
       right: 0;
-      height: 6px;
+      height: 4px;
       background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
     }
 
+    .profile-pic {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #3b82f6;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      margin-bottom: 1rem;
+    }
+
     header h1 {
-      font-size: 3rem;
+      font-size: 2.6rem;
       font-weight: 800;
-      letter-spacing: -1px;
+      letter-spacing: -0.5px;
     }
 
     header p {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       color: #94a3b8;
-      margin-top: 0.5rem;
-      font-weight: 300;
+      margin-top: 0.4rem;
     }
 
     .badge-container {
       display: flex;
       justify-content: center;
-      gap: 0.8rem;
       flex-wrap: wrap;
-      margin-top: 1.5rem;
+      gap: 0.7rem;
+      margin-top: 1.2rem;
     }
 
     .badge {
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(4px);
-      padding: 0.4rem 1.2rem;
+      background: rgba(255,255,255,0.06);
+      padding: 0.3rem 1.2rem;
       border-radius: 50px;
       font-size: 0.8rem;
-      font-weight: 600;
       color: #cbd5e1;
-      border: 1px solid rgba(255,255,255,0.05);
-      letter-spacing: 0.3px;
+      border: 1px solid rgba(255,255,255,0.06);
     }
 
     .badge i {
-      margin-right: 6px;
       color: #3b82f6;
+      margin-right: 6px;
     }
 
-    /* ===== CONTAINER ===== */
     .container {
       max-width: 1000px;
       margin: 0 auto;
       padding: 0 1.5rem;
     }
 
-    /* ===== SECTIONS ===== */
     section {
-      padding: 3rem 0;
+      padding: 2.8rem 0;
       border-bottom: 1px solid #e2e8f0;
     }
 
@@ -105,328 +99,296 @@
     }
 
     h2 {
-      font-size: 1.8rem;
+      font-size: 1.7rem;
       font-weight: 700;
       color: #0f172a;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.7rem;
     }
 
     h2 i {
       color: #3b82f6;
-      font-size: 1.6rem;
+      font-size: 1.5rem;
     }
 
     p {
       color: #334155;
       font-size: 1.05rem;
+      margin-bottom: 1rem;
     }
 
-    /* ===== LISTES ===== */
     ul {
       list-style: none;
       padding: 0;
     }
 
     li {
-      padding: 0.6rem 0;
+      padding: 0.5rem 0;
       border-bottom: 1px solid #f1f5f9;
       display: flex;
+      gap: 0.8rem;
       align-items: flex-start;
-      gap: 0.75rem;
-      font-size: 1rem;
-    }
-
-    li:last-child {
-      border-bottom: none;
     }
 
     li i {
       color: #3b82f6;
       margin-top: 0.2rem;
-      min-width: 20px;
     }
 
-    .skill-tag {
-      display: inline-block;
-      background: #e2e8f0;
-      padding: 0.2rem 0.8rem;
-      border-radius: 50px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: #1e293b;
-      margin-right: 0.4rem;
-    }
-
-    .skill-tag.blue {
-      background: #dbeafe;
-      color: #1e40af;
-    }
-
-    /* ===== PROJETS ===== */
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
       gap: 1.5rem;
-      margin-top: 1rem;
     }
 
     .project-card {
       background: white;
       border-radius: 16px;
       padding: 1.5rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
       border: 1px solid #e2e8f0;
-      transition: all 0.25s ease;
+      transition: 0.25s ease;
     }
 
     .project-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
-      border-color: #b3d4ff;
+      border-color: #3b82f6;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
     }
 
     .project-card i {
       font-size: 1.8rem;
       color: #3b82f6;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.5rem;
     }
 
-    .project-card h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 0.4rem;
-    }
-
-    .project-card p {
-      font-size: 0.9rem;
-      color: #475569;
-    }
-
-    /* ===== CONTACT ===== */
     .contact-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 1.2rem;
-      margin-top: 1rem;
+      gap: 1rem;
     }
 
     .contact-links a {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
       background: white;
-      padding: 0.6rem 1.4rem;
+      padding: 0.5rem 1.5rem;
       border-radius: 50px;
       border: 1px solid #e2e8f0;
       color: #1e293b;
       font-weight: 600;
-      font-size: 0.95rem;
-      transition: all 0.2s;
       text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: 0.2s;
     }
 
     .contact-links a:hover {
       background: #0f172a;
       color: white;
       border-color: #0f172a;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
     }
 
     .contact-links a i {
-      font-size: 1.2rem;
       color: #3b82f6;
     }
 
-    .contact-links a:hover i {
-      color: white;
-    }
-
-    /* ===== FOOTER ===== */
     footer {
       background: #0f172a;
       color: #94a3b8;
       text-align: center;
-      padding: 2.5rem 1.5rem;
-      font-size: 0.9rem;
-      border-top: 1px solid #1e293b;
+      padding: 2rem 1.5rem;
     }
 
     footer strong {
       color: white;
     }
 
-    /* ===== RESPONSIVE ===== */
     @media (max-width: 640px) {
       header h1 {
-        font-size: 2.2rem;
-      }
-
-      .project-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-links {
-        flex-direction: column;
-        align-items: stretch;
+        font-size: 2rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Samakoun Kamissoko</h1>
-    <p>Futur ingénieur en cybersécurité · Réseaux · IA & systèmes complexes</p>
-
-    <div class="badge-container">
-      <span class="badge"><i class="fas fa-shield-alt"></i> Cybersécurité</span>
-      <span class="badge"><i class="fas fa-network-wired"></i> Réseaux avancés</span>
-      <span class="badge"><i class="fas fa-robot"></i> Robotique</span>
-      <span class="badge"><i class="fas fa-code"></i> C / Python / Java</span>
-    </div>
-  </header>
-
-  <div class="container">
-
-    <!-- ===== À PROPOS ===== -->
-    <section>
-      <h2><i class="fas fa-user-astronaut"></i> À propos de moi</h2>
-      <p>
-        Je m’appelle <strong>Samakoun Kamissoko</strong>, étudiant en informatique passionné par la <strong>cybersécurité</strong>, les <strong>réseaux avancés</strong> et l’<strong>intelligence artificielle</strong>.
-        Mon parcours est marqué par une curiosité insatiable pour les systèmes complexes et une volonté constante de comprendre comment les choses fonctionnent en profondeur.
-      </p>
-      <p>
-        J’ai eu l’opportunité de suivre une formation en robotique au sein de l’<strong>Innovation Visionary Robotic Club</strong>
-        de la Faculté des Sciences de l’Université Moulay Ismaïl à Meknès. Cette expérience m’a permis de développer des compétences en <strong>systèmes embarqués</strong>, en <strong>programmation de microcontrôleurs</strong> et en <strong>travail d’équipe</strong> sur des projets concrets.
-      </p>
-      <p>
-        Ce qui me motive aujourd’hui, c’est de <strong>mettre la technologie au service de la sécurité</strong> : anticiper les menaces, analyser les failles, concevoir des systèmes robustes et accessibles. 
-      </p>
-      <p>
-        En dehors du code, je suis un esprit créatif, curieux de tout, toujours en quête de nouveaux défis. J’aime partager ce que j’apprends, et je crois fermement que la meilleure façon de maîtriser un sujet, c’est encore de l’enseigner.
-      </p>
-    </section>
-
-    <!-- ===== COMPÉTENCES ===== -->
-    <section>
-      <h2><i class="fas fa-microchip"></i> Compétences techniques</h2>
-      <ul>
-        <li><i class="fas fa-network-wired"></i> <strong>Réseaux :</strong> IPv6, Cisco, TCP/IP, routage, sécurité réseau</li>
-        <li><i class="fas fa-shield-alt"></i> <strong>Cybersécurité :</strong> IDS, VPN, pare-feux, analyse de vulnérabilités</li>
-        <li><i class="fas fa-code"></i> <strong>Langages :</strong> Python, Java, C, C++, JavaScript, JEE</li>
-        <li><i class="fas fa-tools"></i> <strong>Outils :</strong> Git, Wireshark, Packet Tracer, Docker, Linux</li>
-        <li><i class="fas fa-microchip"></i> <strong>Robotique :</strong> Capteurs, Arduino, programmation embarquée</li>
-      </ul>
-    </section>
-
-    <!-- ===== EXPÉRIENCES ===== -->
-    <section>
-      <h2><i class="fas fa-briefcase"></i> Expériences professionnelles</h2>
-      <ul>
-        <li>
-          <i class="fas fa-building"></i>
-          <div>
-            <strong>Technicien réseau</strong> – Pijitel, Meknès Hamria (6 mois)<br>
-            <span style="color:#475569; font-size:0.95rem;">Installation, configuration et maintenance des équipements réseau, assistance technique aux utilisateurs.</span>
-          </div>
-        </li>
-        <li>
-          <i class="fas fa-store"></i>
-          <div>
-            <strong>Employé polyvalent</strong> – Carrefour Market, Maroc<br>
-            <span style="color:#475569; font-size:0.95rem;">Accueil client, gestion de stock et tenue de caisse.</span>
-          </div>
-        </li>
-        <li>
-          <i class="fas fa-file-alt"></i>
-          <div>
-            <strong>Secrétaire</strong> – LP Défi, Bamako (Mali)<br>
-            <span style="color:#475569; font-size:0.95rem;">Gestion des documents administratifs, accueil physique et téléphonique.</span>
-          </div>
-        </li>
-      </ul>
-    </section>
-
-    <!-- ===== CERTIFICATIONS ===== -->
-    <section>
-      <h2><i class="fas fa-certificate"></i> Certifications & Formations</h2>
-      <ul>
-        <li><i class="fas fa-check-circle"></i> Formation en anglais – Cambridge Global Executive College (Accra, Ghana)</li>
-        <li><i class="fas fa-check-circle"></i> Cisco Packet Tracer – Utilisation avancée</li>
-        <li><i class="fas fa-check-circle"></i> Introduction à la cybersécurité – Udemy (en cours)</li>
-        <li><i class="fas fa-check-circle"></i> Formation en robotique – IVR Club, Faculté des Sciences, Meknès</li>
-      </ul>
-    </section>
-
-    <!-- ===== LANGUES ===== -->
-    <section>
-      <h2><i class="fas fa-language"></i> Langues</h2>
-      <ul>
-        <li><i class="fas fa-flag"></i> <strong>Français :</strong> Langue maternelle</li>
-        <li><i class="fas fa-flag"></i> <strong>Anglais :</strong> Niveau B2+ (certifié)</li>
-      </ul>
-    </section>
-
-    <!-- ===== PROJETS ===== -->
-    <section>
-      <h2><i class="fas fa-laptop-code"></i> Projets récents</h2>
-      <div class="project-grid">
-        <div class="project-card">
-          <i class="fas fa-robot"></i>
-          <h3>IDS intelligent basé IA</h3>
-          <p>Système de détection d'intrusions utilisant l'intelligence artificielle (en cours).</p>
-        </div>
-        <div class="project-card">
-          <i class="fas fa-cubes"></i>
-          <h3>Gestion de projets (Java / MVC)</h3>
-          <p>Application de gestion de projets avec architecture MVC et méthodes agiles.</p>
-        </div>
-        <div class="project-card">
-          <i class="fas fa-diagram-project"></i>
-          <h3>Modélisation UML</h3>
-          <p>Conception orientée objet pour des applications en génie logiciel.</p>
-        </div>
-        <div class="project-card">
-          <i class="fas fa-globe"></i>
-          <h3>Routage IPv6 sur Cisco</h3>
-          <p>Simulation de réseaux IPv6 sur Packet Tracer.</p>
-        </div>
-        <div class="project-card">
-          <i class="fas fa-wifi"></i>
-          <h3>Analyse réseau avec Wireshark</h3>
-          <p>Capture et analyse de paquets pour détecter des anomalies.</p>
-        </div>
-        <div class="project-card">
-          <i class="fas fa-video"></i>
-          <h3>Tutoriels JavaScript (YouTube)</h3>
-          <p>Création de tutoriels vidéo (projet archivé).</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== CONTACT ===== -->
-    <section>
-      <h2><i class="fas fa-envelope"></i> Me contacter</h2>
-      <p style="margin-bottom: 1rem;">
-        📧 <strong>sk7706688@gmail.com</strong>
-      </p>
-      <div class="contact-links">
-        <a href="https://github.com/Samakoun-dev" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        <a href="https://www.linkedin.com/in/samakoun-kamissoko-a25248355" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-        <a href="https://www.instagram.com/skamiss_" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-        <a href="https://www.snapchat.com/add/skamiss02" target="_blank"><i class="fab fa-snapchat-ghost"></i> Snapchat</a>
-      </div>
-    </section>
-
+<header>
+  <img src="images/profil.jpg" alt="Samakoun Kamissoko" class="profile-pic">
+  <h1>Samakoun Kamissoko</h1>
+  <p>Cybersécurité · Réseaux · IA · Développement</p>
+  <div class="badge-container">
+    <span class="badge"><i class="fas fa-shield-alt"></i> Cybersécurité</span>
+    <span class="badge"><i class="fas fa-network-wired"></i> Réseaux</span>
+    <span class="badge"><i class="fas fa-robot"></i> Robotique</span>
+    <span class="badge"><i class="fas fa-code"></i> C/Python/Java</span>
+    <span class="badge"><i class="fas fa-database"></i> SQL / JEE</span>
   </div>
+</header>
 
-  <footer>
-    <p>© 2025 <strong>Samakoun Kamissoko</strong> — Portfolio</p>
-  </footer>
+<div class="container">
+
+  <!-- ===== À PROPOS ===== -->
+  <section>
+    <h2><i class="fas fa-user-astronaut"></i> À propos de moi</h2>
+    <p>
+      Je m’appelle <strong>Samakoun Kamissoko</strong>, étudiant en informatique passionné par la <strong>cybersécurité</strong>, les <strong>réseaux avancés</strong> et l’<strong>intelligence artificielle</strong>.
+      Mon parcours m’a appris à allier rigueur technique et vision stratégique.
+    </p>
+    <p>
+      J’ai développé une forte capacité à <strong>analyser des systèmes complexes</strong>, à identifier des vulnérabilités et à proposer des solutions robustes.
+      Mon passage à l’<strong>Innovation Visionary Robotic Club</strong> (Meknès) m’a permis de travailler sur des projets concrets en robotique et programmation embarquée, où chaque détail compte.
+    </p>
+    <p>
+      Ce qui me motive aujourd’hui, c’est de contribuer à des projets où la <strong>sécurité</strong> et la <strong>fiabilité</strong> ne sont pas des options, mais des exigences.
+      Je suis également attaché à la transmission : j’aime vulgariser les concepts techniques et aider les autres à progresser.
+    </p>
+  </section>
+
+  <!-- ===== COMPÉTENCES ===== -->
+  <section>
+    <h2><i class="fas fa-microchip"></i> Compétences techniques</h2>
+    <ul>
+      <li><i class="fas fa-network-wired"></i> <strong>Réseaux :</strong> IPv6, Cisco, TCP/IP, sécurité réseau, Packet Tracer</li>
+      <li><i class="fas fa-shield-alt"></i> <strong>Cybersécurité :</strong> IDS, VPN, pare-feux, analyse de vulnérabilités</li>
+      <li><i class="fas fa-code"></i> <strong>Langages :</strong> Python, Java, C, C++, JavaScript, PHP, JEE</li>
+      <li><i class="fas fa-database"></i> <strong>Bases de données :</strong> SQL, MySQL, modélisation</li>
+      <li><i class="fas fa-robot"></i> <strong>Robotique :</strong> Arduino, capteurs, programmation embarquée</li>
+      <li><i class="fas fa-tools"></i> <strong>Outils :</strong> Git, Wireshark, Docker, Linux, VS Code</li>
+    </ul>
+  </section>
+
+  <!-- ===== EXPÉRIENCES PRO ===== -->
+  <section>
+    <h2><i class="fas fa-briefcase"></i> Expériences professionnelles</h2>
+  
+    <div style="margin-bottom: 2rem;">
+      <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f172a;">Courtier en Assurance – Provelia Assurance <span style="font-weight: 400; color: #64748b; font-size: 0.95rem;">(2026 – présent)</span></h3>
+      <p style="margin: 0.3rem 0 0.6rem 0; color: #475569;">
+        En tant que courtier, j’accompagne des clients dans le choix de leurs contrats auto, moto et habitation.
+        Je réalise des devis personnalisés, j’analyse les antécédents (bonus-malus, sinistres) et je gère les objections jusqu’à la souscription.
+      </p>
+      <ul style="list-style: none; padding-left: 0;">
+        <li><i class="fas fa-check-circle" style="color: #3b82f6;"></i> Analyse des besoins et proposition de solutions adaptées</li>
+        <li><i class="fas fa-check-circle" style="color: #3b82f6;"></i> Gestion des appels entrants/sortants et relation client</li>
+        <li><i class="fas fa-check-circle" style="color: #3b82f6;"></i> Négociation et closing dans un cadre commercial exigeant</li>
+      </ul>
+    </div>
+  
+    <div style="margin-bottom: 2rem;">
+      <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f172a;">Agent commercial & Contrôle Qualité – AccèsTéléservices <span style="font-weight: 400; color: #64748b; font-size: 0.95rem;">(2025)</span></h3>
+      <p style="margin: 0.3rem 0 0.6rem 0; color: #475569;">
+        Dans le cadre du dispositif de Prime Alimentaire / Protection Juridique, j’ai assuré des appels sortants, présenté des offres de remboursement et vérifié les coordonnées clients.
+        J’ai également participé au contrôle qualité des appels pour garantir la conformité des scripts et la satisfaction client.
+      </p>
+      <ul>
+        <li><i class="fas fa-check-circle" style="color: #3b82f6;"></i> Présentation claire et conforme des offres</li>
+        <li><i class="fas fa-check-circle" style="color: #3b82f6;"></i> Contrôle qualité et notation des appels</li>
+        <li><i class="fas fa-check-circle" style="color: #3b82f6;"></i> Respect des procédures et objectifs commerciaux</li>
+      </ul>
+    </div>
+  
+    <div style="margin-bottom: 2rem;">
+      <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f172a;">Technicien Réseau – Pijitel <span style="font-weight: 400; color: #64748b; font-size: 0.95rem;">(2024)</span></h3>
+      <p style="margin: 0.3rem 0 0.6rem 0; color: #475569;">
+        Stage durant lequel j’ai participé à l’installation et à la maintenance des équipements réseau.
+        J’ai assuré le support technique, le diagnostic et l’optimisation des performances, tout en accompagnant les utilisateurs dans la résolution de leurs problèmes.
+      </p>
+      <ul>
+        <li><i class="fas fa-check-circle" style="color: #3b82f6;"></i> Installation et configuration des équipements</li>
+        <li><i class="fas fa-check-circle" style="color: #3b82f6;"></i> Diagnostic et résolution d’incidents</li>
+        <li><i class="fas fa-check-circle" style="color: #3b82f6;"></i> Assistance technique aux utilisateurs</li>
+      </ul>
+    </div>
+  
+    <div style="margin-bottom: 1rem;">
+      <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f172a;">Développeur Web – LP DEFI <span style="font-weight: 400; color: #64748b; font-size: 0.95rem;">(2022)</span></h3>
+      <p style="margin: 0.3rem 0 0.6rem 0; color: #475569;">
+        Création d’une page de vente en ligne et développement d’applications web. J’ai utilisé HTML, CSS, JavaScript et PHP pour concevoir des solutions accessibles et fonctionnelles.
+      </p>
+      <ul>
+        <li><i class="fas fa-check-circle" style="color: #3b82f6;"></i> Conception et développement front-end / back-end</li>
+        <li><i class="fas fa-check-circle" style="color: #3b82f6;"></i> Maintenance et optimisation des applications</li>
+        <li><i class="fas fa-check-circle" style="color: #3b82f6;"></i> Collaboration avec l’équipe projet</li>
+      </ul>
+    </div>
+</section>
+
+  <!-- ===== CERTIFICATIONS ===== -->
+  <section>
+    <h2><i class="fas fa-certificate"></i> Certifications & Formations</h2>
+    <ul>
+      <li><i class="fas fa-check-circle"></i> Anglais – Cambridge Global Executive College (Accra, Ghana)</li>
+      <li><i class="fas fa-check-circle"></i> Introduction à la cybersécurité – Cisco Networking Academy</li>
+      <li><i class="fas fa-check-circle"></i> Machine Learning – Coursera</li>
+      <li><i class="fas fa-check-circle"></i> Robotique – IVR Club (Faculté des Sciences, Meknès)</li>
+    </ul>
+  </section>
+
+  <!-- ===== LANGUES ===== -->
+  <section>
+    <h2><i class="fas fa-language"></i> Langues</h2>
+    <ul>
+      <li><i class="fas fa-flag"></i> <strong>Français :</strong> Langue maternelle (C2)</li>
+      <li><i class="fas fa-flag"></i> <strong>Anglais :</strong> Niveau B2 (certifié)</li>
+      <li><i class="fas fa-flag"></i> <strong>Bambara :</strong> Langue maternelle</li>
+    </ul>
+  </section>
+
+  <!-- ===== PROJETS ===== -->
+  <section>
+    <h2><i class="fas fa-laptop-code"></i> Projets récents</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <i class="fas fa-robot"></i>
+        <h3>IDS intelligent basé IA</h3>
+        <p>Détection d’intrusions avec apprentissage automatique (en cours).</p>
+      </div>
+      <div class="project-card">
+        <i class="fas fa-cubes"></i>
+        <h3>Gestion de projets (Java/MVC)</h3>
+        <p>Application de gestion avec architecture MVC et méthodes agiles.</p>
+      </div>
+      <div class="project-card">
+        <i class="fas fa-diagram-project"></i>
+        <h3>Modélisation UML</h3>
+        <p>Conception orientée objet pour le génie logiciel.</p>
+      </div>
+      <div class="project-card">
+        <i class="fas fa-globe"></i>
+        <h3>Routage IPv6 sur Cisco</h3>
+        <p>Simulation de réseaux complexes avec Packet Tracer.</p>
+      </div>
+      <div class="project-card">
+        <i class="fas fa-wifi"></i>
+        <h3>Analyse réseau avec Wireshark</h3>
+        <p>Capture et analyse de paquets pour la détection d’anomalies.</p>
+      </div>
+      <div class="project-card">
+        <i class="fas fa-video"></i>
+        <h3>Tutoriels YouTube</h3>
+        <p>Création de contenus pédagogiques sur JavaScript (projet archivé).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section>
+    <h2><i class="fas fa-envelope"></i> Me contacter</h2>
+    <p><i class="fas fa-envelope"></i> <strong>sk7706688@gmail.com</strong></p>
+    <div class="contact-links">
+      <a href="https://github.com/Samakoun-dev" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+      <a href="https://www.linkedin.com/in/samakoun-kamissoko-a25248355" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="https://www.instagram.com/skamiss_" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="https://www.snapchat.com/add/skamiss02" target="_blank"><i class="fab fa-snapchat-ghost"></i> Snapchat</a>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>© 2025 <strong>Samakoun Kamissoko</strong> — Portfolio</p>
+</footer>
 
 </body>
 </html>
