@@ -364,6 +364,104 @@
       header h1 { font-size: 2rem; }
       section { padding: 1.5rem; }
     }
+    /* ===== DARK TOGGLE ===== */
+    .dark-toggle {
+      position: absolute;
+      top: 1.5rem;
+      left: 2rem;
+      background: rgba(255,255,255,0.08);
+      padding: 0.4rem 0.9rem;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      color: #cbd5e1;
+      border: 1px solid rgba(255,255,255,0.1);
+      cursor: pointer;
+      transition: 0.3s;
+      z-index: 10;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .dark-toggle:hover {
+      background: #3b82f6;
+      color: white;
+    }
+    
+    /* ===== DARK MODE ===== */
+    body.dark-mode {
+      background: #0f172a;
+      color: #e2e8f0;
+    }
+    
+    body.dark-mode #particles-js {
+      background: #0f172a;
+    }
+    
+    body.dark-mode section {
+      background: rgba(30, 41, 59, 0.85);
+      backdrop-filter: blur(4px);
+      border-bottom: 1px solid #1e293b;
+    }
+    
+    body.dark-mode .project-card {
+      background: #1e293b;
+      border-color: #334155;
+      color: #e2e8f0;
+    }
+    
+    body.dark-mode .project-card i {
+      color: #60a5fa;
+    }
+    
+    body.dark-mode .badge {
+      border-color: #334155;
+    }
+    
+    body.dark-mode .badge:hover {
+      background: rgba(59, 130, 246, 0.2);
+      border-color: #3b82f6;
+    }
+    
+    body.dark-mode .interests-grid div {
+      background: #1e293b;
+      border-color: #334155;
+      color: #e2e8f0;
+    }
+    
+    body.dark-mode .interests-grid div:hover {
+      background: #3b82f6;
+      color: white;
+    }
+    
+    body.dark-mode .contact-links a {
+      background: #1e293b;
+      border-color: #334155;
+      color: #e2e8f0;
+    }
+    
+    body.dark-mode .contact-links a:hover {
+      background: #3b82f6;
+      color: white;
+      border-color: #3b82f6;
+    }
+    
+    body.dark-mode .experience-block ul li {
+      border-bottom: none;
+    }
+    
+    body.dark-mode .experience-block ul li i {
+      color: #60a5fa;
+    }
+    
+    body.dark-mode .view-counter,
+    body.dark-mode .clock {
+      color: #94a3b8;
+    }
+    
+    body.dark-mode .lang-switch {
+      border-color: #334155;
+    }
   </style>
 </head>
 <body>
@@ -373,6 +471,9 @@
 
 <header>
   <span class="lang-switch" onclick="toggleLang()">🇫🇷 FR / 🇬🇧 EN</span>
+  <button class="dark-toggle" onclick="toggleDarkMode()" title="Basculer en mode sombre">
+   <i class="fas fa-moon"></i>
+  </button>
 
   <img src="image2.jpeg" alt="Samakoun Kamissoko" class="profile-pic">
   <h1>Samakoun Kamissoko</h1>
@@ -607,6 +708,22 @@
     },
     retina_detect: true
   });
+  // ===== DARK MODE =====
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    const icon = document.querySelector('.dark-toggle i');
+    if (document.body.classList.contains('dark-mode')) {
+      icon.className = 'fas fa-sun';
+    } else {
+      icon.className = 'fas fa-moon';
+    }
+  }
+  
+  // Optionnel : sauvegarder la préférence de l'utilisateur
+  if (localStorage.getItem('darkMode') === 'enabled') {
+    document.body.classList.add('dark-mode');
+    document.querySelector('.dark-toggle i').className = 'fas fa-sun';
+  }
 </script>
 
 </body>
