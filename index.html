@@ -7,6 +7,10 @@
   <title>Samakoun Kamissoko | Portfolio</title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.1/css/all.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- ===== PARTICLES.JS ===== -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
   <style>
     * {
       margin: 0;
@@ -22,25 +26,29 @@
       overflow-x: hidden;
     }
 
-    /* ===== ANIMATION GLOBALE ===== */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      background: #f8fafc;
+    }
+
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
       animation: fadeUp 0.6s ease forwards;
     }
-
     .fade-in:nth-child(2) { animation-delay: 0.1s; }
     .fade-in:nth-child(3) { animation-delay: 0.2s; }
     .fade-in:nth-child(4) { animation-delay: 0.3s; }
 
     @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ===== HEADER ===== */
     header {
       background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #2d3b5a 100%);
       color: white;
@@ -48,6 +56,7 @@
       text-align: center;
       position: relative;
       overflow: hidden;
+      z-index: 1;
     }
 
     header::after {
@@ -75,9 +84,8 @@
       object-fit: cover;
       border: 4px solid #3b82f6;
       box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: 0.3s;
     }
-
     .profile-pic:hover {
       transform: scale(1.05);
       box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
@@ -86,7 +94,6 @@
     header h1 {
       font-size: 2.8rem;
       font-weight: 800;
-      letter-spacing: -0.5px;
       margin-top: 0.5rem;
       background: linear-gradient(90deg, #f8fafc, #94a3b8);
       -webkit-background-clip: text;
@@ -97,6 +104,26 @@
       font-size: 1.2rem;
       color: #94a3b8;
       margin-top: 0.2rem;
+      min-height: 2.5rem;
+    }
+
+    .lang-switch {
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+      background: rgba(255,255,255,0.08);
+      padding: 0.3rem 1rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      color: #cbd5e1;
+      border: 1px solid rgba(255,255,255,0.1);
+      cursor: pointer;
+      transition: 0.3s;
+      z-index: 10;
+    }
+    .lang-switch:hover {
+      background: #3b82f6;
+      color: white;
     }
 
     .badge-container {
@@ -117,20 +144,17 @@
       transition: 0.3s;
       cursor: default;
     }
-
     .badge:hover {
       background: rgba(59, 130, 246, 0.2);
       border-color: #3b82f6;
       color: white;
       transform: translateY(-2px);
     }
-
     .badge i {
       color: #3b82f6;
       margin-right: 6px;
     }
 
-    /* ===== HORLOGE ===== */
     .clock {
       margin-top: 1.5rem;
       font-size: 1.1rem;
@@ -143,27 +167,38 @@
       font-weight: 300;
       letter-spacing: 1px;
     }
-
     .clock i {
       color: #3b82f6;
       margin-right: 10px;
     }
 
-    /* ===== CONTAINER ===== */
+    .view-counter {
+      font-size: 0.9rem;
+      color: #64748b;
+      margin-top: 1rem;
+    }
+    .view-counter i {
+      color: #3b82f6;
+    }
+
     .container {
       max-width: 1000px;
       margin: 0 auto;
       padding: 0 1.5rem;
+      position: relative;
+      z-index: 1;
     }
 
     section {
       padding: 2.8rem 0;
       border-bottom: 1px solid #e2e8f0;
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(4px);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
     }
-
-    section:last-of-type {
-      border-bottom: none;
-    }
+    section:last-of-type { border-bottom: none; }
 
     h2 {
       font-size: 1.7rem;
@@ -174,23 +209,15 @@
       align-items: center;
       gap: 0.7rem;
     }
-
     h2 i {
       color: #3b82f6;
       font-size: 1.5rem;
-    }
-
-    p {
-      color: #334155;
-      font-size: 1.05rem;
-      margin-bottom: 1rem;
     }
 
     ul {
       list-style: none;
       padding: 0;
     }
-
     li {
       padding: 0.5rem 0;
       border-bottom: 1px solid #f1f5f9;
@@ -198,13 +225,11 @@
       gap: 0.8rem;
       align-items: flex-start;
     }
-
     li i {
       color: #3b82f6;
       margin-top: 0.2rem;
     }
 
-    /* ===== PROJETS ===== */
     .project-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -219,38 +244,32 @@
       transition: 0.25s ease;
       box-shadow: 0 4px 12px rgba(0,0,0,0.02);
     }
-
     .project-card:hover {
       transform: translateY(-6px);
       border-color: #3b82f6;
       box-shadow: 0 12px 32px rgba(0,0,0,0.08);
     }
-
     .project-card i {
       font-size: 1.8rem;
       color: #3b82f6;
       margin-bottom: 0.5rem;
     }
 
-    /* ===== EXPÉRIENCES ===== */
     .experience-block {
       margin-bottom: 2rem;
       padding-left: 1.2rem;
       border-left: 3px solid #3b82f6;
       transition: 0.2s;
     }
-
     .experience-block:hover {
       border-left-color: #8b5cf6;
       padding-left: 1.5rem;
     }
-
     .experience-block h3 {
       font-size: 1.15rem;
       font-weight: 700;
       color: #0f172a;
     }
-
     .experience-block .date {
       font-weight: 400;
       color: #64748b;
@@ -258,12 +277,6 @@
       display: block;
       margin-bottom: 0.3rem;
     }
-
-    .experience-block ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
     .experience-block ul li {
       padding: 0.2rem 0;
       border-bottom: none;
@@ -271,17 +284,34 @@
       gap: 0.8rem;
     }
 
-    .experience-block ul li i {
+    .interests-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .interests-grid div {
+      background: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 50px;
+      border: 1px solid #e2e8f0;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    .interests-grid div:hover {
+      background: #0f172a;
+      color: white;
+      border-color: #0f172a;
+    }
+    .interests-grid i {
       color: #3b82f6;
+      margin-right: 8px;
     }
 
-    /* ===== CONTACT ===== */
     .contact-links {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
     }
-
     .contact-links a {
       background: white;
       padding: 0.5rem 1.5rem;
@@ -295,17 +325,26 @@
       gap: 10px;
       transition: 0.2s;
     }
-
     .contact-links a:hover {
       background: #0f172a;
       color: white;
       border-color: #0f172a;
       transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
     }
-
     .contact-links a i {
       color: #3b82f6;
+    }
+
+    .cv-btn {
+      background: #3b82f6 !important;
+      color: white !important;
+      border: none !important;
+    }
+    .cv-btn i {
+      color: white !important;
+    }
+    .cv-btn:hover {
+      background: #1e4f8a !important;
     }
 
     footer {
@@ -313,25 +352,33 @@
       color: #94a3b8;
       text-align: center;
       padding: 2rem 1.5rem;
+      margin-top: 2rem;
+      position: relative;
+      z-index: 1;
     }
-
     footer strong {
       color: white;
     }
 
     @media (max-width: 640px) {
-      header h1 {
-        font-size: 2rem;
-      }
+      header h1 { font-size: 2rem; }
+      section { padding: 1.5rem; }
     }
   </style>
 </head>
 <body>
 
+<!-- ===== PARTICULES ===== -->
+<div id="particles-js"></div>
+
 <header>
+  <span class="lang-switch" onclick="toggleLang()">🇫🇷 FR / 🇬🇧 EN</span>
+
   <img src="image2.jpeg" alt="Samakoun Kamissoko" class="profile-pic">
   <h1>Samakoun Kamissoko</h1>
-  <p>Cybersécurité · Réseaux · IA · Développement</p>
+
+  <!-- Effet typing -->
+  <p id="typing"></p>
 
   <div class="badge-container">
     <span class="badge"><i class="fas fa-shield-alt"></i> Cybersécurité</span>
@@ -341,34 +388,47 @@
     <span class="badge"><i class="fas fa-database"></i> SQL / JEE</span>
   </div>
 
-  <!-- ===== HORLOGE EN TEMPS RÉEL ===== -->
-  <div class="clock" id="liveClock">
-    <i class="fas fa-clock"></i> <span id="clockDisplay">00:00:00</span>
-  </div>
+  <div class="clock"><i class="fas fa-clock"></i> <span id="clockDisplay">00:00:00</span></div>
+  <div class="view-counter"><i class="fas fa-eye"></i> <span id="viewCounter">0</span> visites</div>
 </header>
 
 <div class="container">
 
   <!-- ===== À PROPOS ===== -->
+  <section class="fade-in" id="about">
+    <h2><i class="fas fa-user-astronaut"></i> <span class="fr">À propos de moi</span><span class="en" style="display:none;">About me</span></h2>
+    <p class="fr">Je m’appelle <strong>Samakoun Kamissoko</strong>, étudiant en informatique passionné par la <strong>cybersécurité</strong>, les <strong>réseaux avancés</strong> et l’<strong>intelligence artificielle</strong>.</p>
+    <p class="en" style="display:none;">I’m <strong>Samakoun Kamissoko</strong>, a computer science student passionate about <strong>cybersecurity</strong>, <strong>networks</strong>, and <strong>AI</strong>.</p>
+    <p class="fr">J’ai développé une forte capacité à analyser des systèmes complexes, à identifier des vulnérabilités et à proposer des solutions robustes.</p>
+    <p class="en" style="display:none;">I’ve developed a strong ability to analyze complex systems, identify vulnerabilities, and propose robust solutions.</p>
+    <p class="fr">Ce qui me motive aujourd’hui, c’est de contribuer à des projets où la sécurité et la fiabilité sont des exigences fondamentales.</p>
+    <p class="en" style="display:none;">What drives me today is contributing to projects where security and reliability are fundamental requirements.</p>
+  </section>
+
+  <!-- ===== VEILLE TECH ===== -->
   <section class="fade-in">
-    <h2><i class="fas fa-user-astronaut"></i> À propos de moi</h2>
-    <p>
-      Je m’appelle <strong>Samakoun Kamissoko</strong>, étudiant en informatique passionné par la <strong>cybersécurité</strong>, les <strong>réseaux avancés</strong> et l’<strong>intelligence artificielle</strong>.
-      Mon parcours m’a appris à allier rigueur technique et vision stratégique.
-    </p>
-    <p>
-      J’ai développé une forte capacité à <strong>analyser des systèmes complexes</strong>, à identifier des vulnérabilités et à proposer des solutions robustes.
-      Mon passage à l’<strong>Innovation Visionary Robotic Club</strong> (Meknès) m’a permis de travailler sur des projets concrets en robotique et programmation embarquée, où chaque détail compte.
-    </p>
-    <p>
-      Ce qui me motive aujourd’hui, c’est de contribuer à des projets où la <strong>sécurité</strong> et la <strong>fiabilité</strong> ne sont pas des options, mais des exigences.
-      Je suis également attaché à la transmission : j’aime vulgariser les concepts techniques et aider les autres à progresser.
-    </p>
+    <h2><i class="fas fa-rss"></i> <span class="fr">Veille technologique</span><span class="en" style="display:none;">Tech Watch</span></h2>
+    <ul>
+      <li><i class="fas fa-shield-alt"></i> <strong>Zero Trust Architecture</strong> – Modèle de sécurité qui ne fait confiance à aucun utilisateur ou appareil par défaut.</li>
+      <li><i class="fas fa-brain"></i> <strong>IA & Cybersécurité</strong> – Utilisation de l’apprentissage automatique pour détecter les intrusions en temps réel.</li>
+      <li><i class="fas fa-globe"></i> <strong>Adoption IPv6</strong> – Transition vers IPv6 pour répondre à la pénurie d’adresses IP.</li>
+    </ul>
+  </section>
+
+  <!-- ===== CENTRES D'INTÉRÊT ===== -->
+  <section class="fade-in">
+    <h2><i class="fas fa-heart"></i> <span class="fr">Centres d’intérêt</span><span class="en" style="display:none;">Interests</span></h2>
+    <div class="interests-grid">
+      <div><i class="fas fa-plane"></i> Voyage & découverte</div>
+      <div><i class="fas fa-dumbbell"></i> Musculation & bien-être</div>
+      <div><i class="fas fa-code"></i> Programmation & veille tech</div>
+      <div><i class="fas fa-book"></i> Lecture & culture générale</div>
+    </div>
   </section>
 
   <!-- ===== COMPÉTENCES ===== -->
   <section class="fade-in">
-    <h2><i class="fas fa-microchip"></i> Compétences techniques</h2>
+    <h2><i class="fas fa-microchip"></i> <span class="fr">Compétences techniques</span><span class="en" style="display:none;">Technical Skills</span></h2>
     <ul>
       <li><i class="fas fa-network-wired"></i> <strong>Réseaux :</strong> IPv6, Cisco, TCP/IP, sécurité réseau, Packet Tracer</li>
       <li><i class="fas fa-shield-alt"></i> <strong>Cybersécurité :</strong> IDS, VPN, pare-feux, analyse de vulnérabilités</li>
@@ -381,7 +441,7 @@
 
   <!-- ===== EXPÉRIENCES ===== -->
   <section class="fade-in">
-    <h2><i class="fas fa-briefcase"></i> Expériences professionnelles</h2>
+    <h2><i class="fas fa-briefcase"></i> <span class="fr">Expériences professionnelles</span><span class="en" style="display:none;">Professional Experience</span></h2>
 
     <div class="experience-block">
       <h3>Courtier en Assurance</h3>
@@ -430,7 +490,7 @@
 
   <!-- ===== CERTIFICATIONS ===== -->
   <section class="fade-in">
-    <h2><i class="fas fa-certificate"></i> Certifications & Formations</h2>
+    <h2><i class="fas fa-certificate"></i> <span class="fr">Certifications & Formations</span><span class="en" style="display:none;">Certifications & Trainings</span></h2>
     <ul>
       <li><i class="fas fa-check-circle"></i> Anglais – Cambridge Global Executive College (Accra, Ghana)</li>
       <li><i class="fas fa-check-circle"></i> Introduction à la cybersécurité – Cisco Networking Academy</li>
@@ -441,7 +501,7 @@
 
   <!-- ===== LANGUES ===== -->
   <section class="fade-in">
-    <h2><i class="fas fa-language"></i> Langues</h2>
+    <h2><i class="fas fa-language"></i> <span class="fr">Langues</span><span class="en" style="display:none;">Languages</span></h2>
     <ul>
       <li><i class="fas fa-flag"></i> <strong>Français :</strong> Langue maternelle (C2)</li>
       <li><i class="fas fa-flag"></i> <strong>Anglais :</strong> Niveau B2 (certifié)</li>
@@ -451,50 +511,27 @@
 
   <!-- ===== PROJETS ===== -->
   <section class="fade-in">
-    <h2><i class="fas fa-laptop-code"></i> Projets récents</h2>
+    <h2><i class="fas fa-laptop-code"></i> <span class="fr">Projets récents</span><span class="en" style="display:none;">Recent Projects</span></h2>
     <div class="project-grid">
-      <div class="project-card">
-        <i class="fas fa-robot"></i>
-        <h3>IDS intelligent basé IA</h3>
-        <p>Détection d’intrusions avec apprentissage automatique (en cours).</p>
-      </div>
-      <div class="project-card">
-        <i class="fas fa-cubes"></i>
-        <h3>Gestion de projets (Java/MVC)</h3>
-        <p>Application de gestion avec architecture MVC et méthodes agiles.</p>
-      </div>
-      <div class="project-card">
-        <i class="fas fa-diagram-project"></i>
-        <h3>Modélisation UML</h3>
-        <p>Conception orientée objet pour le génie logiciel.</p>
-      </div>
-      <div class="project-card">
-        <i class="fas fa-globe"></i>
-        <h3>Routage IPv6 sur Cisco</h3>
-        <p>Simulation de réseaux complexes avec Packet Tracer.</p>
-      </div>
-      <div class="project-card">
-        <i class="fas fa-wifi"></i>
-        <h3>Analyse réseau avec Wireshark</h3>
-        <p>Capture et analyse de paquets pour la détection d’anomalies.</p>
-      </div>
-      <div class="project-card">
-        <i class="fas fa-video"></i>
-        <h3>Tutoriels YouTube</h3>
-        <p>Création de contenus pédagogiques sur JavaScript (projet archivé).</p>
-      </div>
+      <div class="project-card"><i class="fas fa-robot"></i><h3>IDS intelligent basé IA</h3><p>Détection d’intrusions avec apprentissage automatique (en cours).</p></div>
+      <div class="project-card"><i class="fas fa-cubes"></i><h3>Gestion de projets (Java/MVC)</h3><p>Application avec architecture MVC et méthodes agiles.</p></div>
+      <div class="project-card"><i class="fas fa-diagram-project"></i><h3>Modélisation UML</h3><p>Conception orientée objet pour le génie logiciel.</p></div>
+      <div class="project-card"><i class="fas fa-globe"></i><h3>Routage IPv6 sur Cisco</h3><p>Simulation de réseaux complexes avec Packet Tracer.</p></div>
+      <div class="project-card"><i class="fas fa-wifi"></i><h3>Analyse réseau avec Wireshark</h3><p>Capture et analyse de paquets pour la détection d’anomalies.</p></div>
+      <div class="project-card"><i class="fas fa-video"></i><h3>Tutoriels YouTube</h3><p>Création de contenus pédagogiques sur JavaScript (projet archivé).</p></div>
     </div>
   </section>
 
   <!-- ===== CONTACT ===== -->
   <section class="fade-in">
-    <h2><i class="fas fa-envelope"></i> Me contacter</h2>
+    <h2><i class="fas fa-envelope"></i> <span class="fr">Me contacter</span><span class="en" style="display:none;">Contact Me</span></h2>
     <p><i class="fas fa-envelope"></i> <strong>sk7706688@gmail.com</strong></p>
     <div class="contact-links">
       <a href="https://github.com/Samakoun-dev" target="_blank"><i class="fab fa-github"></i> GitHub</a>
       <a href="https://www.linkedin.com/in/samakoun-kamissoko-a25248355" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
       <a href="https://www.instagram.com/skamiss_" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
       <a href="https://www.snapchat.com/add/skamiss02" target="_blank"><i class="fab fa-snapchat-ghost"></i> Snapchat</a>
+      <a href="#" class="cv-btn"><i class="fas fa-file-pdf"></i> Télécharger mon CV</a>
     </div>
   </section>
 
@@ -504,19 +541,72 @@
   <p>© 2025 <strong>Samakoun Kamissoko</strong> — Portfolio</p>
 </footer>
 
-<!-- ===== HORLOGE EN TEMPS RÉEL ===== -->
+<!-- ===== SCRIPTS ===== -->
 <script>
+  // ===== 1. HORLOGE =====
   function updateClock() {
     const now = new Date();
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-    const seconds = String(now.getSeconds()).padStart(2, '0');
-    const timeString = hours + ':' + minutes + ':' + seconds;
-    document.getElementById('clockDisplay').textContent = timeString;
+    const h = String(now.getHours()).padStart(2,'0');
+    const m = String(now.getMinutes()).padStart(2,'0');
+    const s = String(now.getSeconds()).padStart(2,'0');
+    document.getElementById('clockDisplay').textContent = h+':'+m+':'+s;
   }
-
   updateClock();
   setInterval(updateClock, 1000);
+
+  // ===== 2. COMPTEUR DE VISITES (simulé avec localStorage) =====
+  let views = parseInt(localStorage.getItem('portfolioViews')) || 0;
+  views++;
+  localStorage.setItem('portfolioViews', views);
+  document.getElementById('viewCounter').textContent = views;
+
+  // ===== 3. EFFET TYPING =====
+  const text = "Cybersécurité · Réseaux · IA · Développement";
+  let i = 0;
+  function typeEffect() {
+    if (i < text.length) {
+      document.getElementById("typing").textContent += text.charAt(i);
+      i++;
+      setTimeout(typeEffect, 60);
+    }
+  }
+  window.onload = typeEffect;
+
+  // ===== 4. BILINGUE (FR/EN) =====
+  let lang = 'fr';
+
+  function toggleLang() {
+    if (lang === 'fr') {
+      lang = 'en';
+      document.querySelectorAll('.fr').forEach(el => el.style.display = 'none');
+      document.querySelectorAll('.en').forEach(el => el.style.display = 'block');
+    } else {
+      lang = 'fr';
+      document.querySelectorAll('.fr').forEach(el => el.style.display = 'block');
+      document.querySelectorAll('.en').forEach(el => el.style.display = 'none');
+    }
+  }
+
+  // ===== 5. PARTICLES.JS =====
+  particlesJS('particles-js', {
+    particles: {
+      number: { value: 60, density: { enable: true, value_area: 800 } },
+      color: { value: '#3b82f6' },
+      shape: { type: 'circle' },
+      opacity: { value: 0.3, random: true },
+      size: { value: 3, random: true },
+      line_linked: { enable: true, distance: 120, color: '#3b82f6', opacity: 0.15, width: 1 },
+      move: { enable: true, speed: 2, direction: 'none', random: true, straight: false, out_mode: 'out' }
+    },
+    interactivity: {
+      detect_on: 'canvas',
+      events: {
+        onhover: { enable: true, mode: 'repulse' },
+        onclick: { enable: true, mode: 'push' }
+      }
+    },
+    retina_detect: true
+  });
 </script>
 
 </body>
