@@ -19,14 +19,35 @@
       background: #f8fafc;
       color: #1e293b;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
+    /* ===== ANIMATION GLOBALE ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    .fade-in:nth-child(2) { animation-delay: 0.1s; }
+    .fade-in:nth-child(3) { animation-delay: 0.2s; }
+    .fade-in:nth-child(4) { animation-delay: 0.3s; }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ===== HEADER ===== */
     header {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #2d3b5a 100%);
       color: white;
       padding: 3rem 2rem;
       text-align: center;
       position: relative;
+      overflow: hidden;
     }
 
     header::after {
@@ -36,7 +57,15 @@
       left: 0;
       right: 0;
       height: 4px;
-      background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #f59e0b);
+      background-size: 300% 100%;
+      animation: gradientMove 4s ease infinite;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .profile-pic {
@@ -45,20 +74,29 @@
       border-radius: 50%;
       object-fit: cover;
       border: 4px solid #3b82f6;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-      margin-bottom: 1rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .profile-pic:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
     }
 
     header h1 {
-      font-size: 2.6rem;
+      font-size: 2.8rem;
       font-weight: 800;
       letter-spacing: -0.5px;
+      margin-top: 0.5rem;
+      background: linear-gradient(90deg, #f8fafc, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     header p {
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       color: #94a3b8;
-      margin-top: 0.4rem;
+      margin-top: 0.2rem;
     }
 
     .badge-container {
@@ -76,6 +114,15 @@
       font-size: 0.8rem;
       color: #cbd5e1;
       border: 1px solid rgba(255,255,255,0.06);
+      transition: 0.3s;
+      cursor: default;
+    }
+
+    .badge:hover {
+      background: rgba(59, 130, 246, 0.2);
+      border-color: #3b82f6;
+      color: white;
+      transform: translateY(-2px);
     }
 
     .badge i {
@@ -83,6 +130,26 @@
       margin-right: 6px;
     }
 
+    /* ===== HORLOGE ===== */
+    .clock {
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
+      color: #94a3b8;
+      background: rgba(255,255,255,0.04);
+      display: inline-block;
+      padding: 0.4rem 1.8rem;
+      border-radius: 50px;
+      border: 1px solid rgba(255,255,255,0.06);
+      font-weight: 300;
+      letter-spacing: 1px;
+    }
+
+    .clock i {
+      color: #3b82f6;
+      margin-right: 10px;
+    }
+
+    /* ===== CONTAINER ===== */
     .container {
       max-width: 1000px;
       margin: 0 auto;
@@ -137,6 +204,7 @@
       margin-top: 0.2rem;
     }
 
+    /* ===== PROJETS ===== */
     .project-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -149,12 +217,13 @@
       padding: 1.5rem;
       border: 1px solid #e2e8f0;
       transition: 0.25s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
     }
 
     .project-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-6px);
       border-color: #3b82f6;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.08);
     }
 
     .project-card i {
@@ -163,18 +232,23 @@
       margin-bottom: 0.5rem;
     }
 
+    /* ===== EXPÉRIENCES ===== */
     .experience-block {
       margin-bottom: 2rem;
-      padding-left: 0.5rem;
-      border-left: 3px solid #3b82f6;
       padding-left: 1.2rem;
+      border-left: 3px solid #3b82f6;
+      transition: 0.2s;
+    }
+
+    .experience-block:hover {
+      border-left-color: #8b5cf6;
+      padding-left: 1.5rem;
     }
 
     .experience-block h3 {
       font-size: 1.15rem;
       font-weight: 700;
       color: #0f172a;
-      margin-bottom: 0.2rem;
     }
 
     .experience-block .date {
@@ -182,10 +256,6 @@
       color: #64748b;
       font-size: 0.9rem;
       display: block;
-      margin-bottom: 0.4rem;
-    }
-
-    .experience-block p {
       margin-bottom: 0.3rem;
     }
 
@@ -205,6 +275,7 @@
       color: #3b82f6;
     }
 
+    /* ===== CONTACT ===== */
     .contact-links {
       display: flex;
       flex-wrap: wrap;
@@ -229,6 +300,8 @@
       background: #0f172a;
       color: white;
       border-color: #0f172a;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
     }
 
     .contact-links a i {
@@ -259,6 +332,7 @@
   <img src="image2.jpeg" alt="Samakoun Kamissoko" class="profile-pic">
   <h1>Samakoun Kamissoko</h1>
   <p>Cybersécurité · Réseaux · IA · Développement</p>
+
   <div class="badge-container">
     <span class="badge"><i class="fas fa-shield-alt"></i> Cybersécurité</span>
     <span class="badge"><i class="fas fa-network-wired"></i> Réseaux</span>
@@ -266,12 +340,17 @@
     <span class="badge"><i class="fas fa-code"></i> C/Python/Java</span>
     <span class="badge"><i class="fas fa-database"></i> SQL / JEE</span>
   </div>
+
+  <!-- ===== HORLOGE EN TEMPS RÉEL ===== -->
+  <div class="clock" id="liveClock">
+    <i class="fas fa-clock"></i> <span id="clockDisplay">00:00:00</span>
+  </div>
 </header>
 
 <div class="container">
 
   <!-- ===== À PROPOS ===== -->
-  <section>
+  <section class="fade-in">
     <h2><i class="fas fa-user-astronaut"></i> À propos de moi</h2>
     <p>
       Je m’appelle <strong>Samakoun Kamissoko</strong>, étudiant en informatique passionné par la <strong>cybersécurité</strong>, les <strong>réseaux avancés</strong> et l’<strong>intelligence artificielle</strong>.
@@ -288,7 +367,7 @@
   </section>
 
   <!-- ===== COMPÉTENCES ===== -->
-  <section>
+  <section class="fade-in">
     <h2><i class="fas fa-microchip"></i> Compétences techniques</h2>
     <ul>
       <li><i class="fas fa-network-wired"></i> <strong>Réseaux :</strong> IPv6, Cisco, TCP/IP, sécurité réseau, Packet Tracer</li>
@@ -300,8 +379,8 @@
     </ul>
   </section>
 
-  <!-- ===== EXPÉRIENCES PRO ===== -->
-  <section>
+  <!-- ===== EXPÉRIENCES ===== -->
+  <section class="fade-in">
     <h2><i class="fas fa-briefcase"></i> Expériences professionnelles</h2>
 
     <div class="experience-block">
@@ -350,7 +429,7 @@
   </section>
 
   <!-- ===== CERTIFICATIONS ===== -->
-  <section>
+  <section class="fade-in">
     <h2><i class="fas fa-certificate"></i> Certifications & Formations</h2>
     <ul>
       <li><i class="fas fa-check-circle"></i> Anglais – Cambridge Global Executive College (Accra, Ghana)</li>
@@ -361,7 +440,7 @@
   </section>
 
   <!-- ===== LANGUES ===== -->
-  <section>
+  <section class="fade-in">
     <h2><i class="fas fa-language"></i> Langues</h2>
     <ul>
       <li><i class="fas fa-flag"></i> <strong>Français :</strong> Langue maternelle (C2)</li>
@@ -371,7 +450,7 @@
   </section>
 
   <!-- ===== PROJETS ===== -->
-  <section>
+  <section class="fade-in">
     <h2><i class="fas fa-laptop-code"></i> Projets récents</h2>
     <div class="project-grid">
       <div class="project-card">
@@ -408,7 +487,7 @@
   </section>
 
   <!-- ===== CONTACT ===== -->
-  <section>
+  <section class="fade-in">
     <h2><i class="fas fa-envelope"></i> Me contacter</h2>
     <p><i class="fas fa-envelope"></i> <strong>sk7706688@gmail.com</strong></p>
     <div class="contact-links">
@@ -424,6 +503,21 @@
 <footer>
   <p>© 2025 <strong>Samakoun Kamissoko</strong> — Portfolio</p>
 </footer>
+
+<!-- ===== HORLOGE EN TEMPS RÉEL ===== -->
+<script>
+  function updateClock() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    const timeString = hours + ':' + minutes + ':' + seconds;
+    document.getElementById('clockDisplay').textContent = timeString;
+  }
+
+  updateClock();
+  setInterval(updateClock, 1000);
+</script>
 
 </body>
 </html>
