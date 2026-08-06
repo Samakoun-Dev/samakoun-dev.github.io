@@ -12,165 +12,421 @@
   <!-- FontAwesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.1/css/all.css">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Samakoun Kamissoko | Portfolio" />
-  <meta property="og:description" content="Futur ingénieur en cybersécurité | Réseaux | IA | Systèmes complexes" />
-  <meta property="og:image" content="https://samakoun-dev.github.io/banner.png" />
-  <meta property="og:url" content="https://samakoun-dev.github.io" />
-  <meta property="og:type" content="website" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
+    * {
       margin: 0;
       padding: 0;
-      background: #f7f7f7;
-      color: #222;
+      box-sizing: border-box;
     }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.7;
+    }
+
+    /* ===== HEADER ===== */
     header {
-      background: #0f172a;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
       color: white;
-      padding: 2rem;
+      padding: 4rem 2rem 3rem;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-    header img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-      margin-top: 1rem;
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
     }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #94a3b8;
+      margin-top: 0.5rem;
+      font-weight: 300;
+    }
+
+    .badge-container {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .badge {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(4px);
+      padding: 0.4rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #cbd5e1;
+      border: 1px solid rgba(255,255,255,0.05);
+      letter-spacing: 0.3px;
+    }
+
+    .badge i {
+      margin-right: 6px;
+      color: #3b82f6;
+    }
+
+    /* ===== CONTAINER ===== */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ===== SECTIONS ===== */
     section {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      padding: 3rem 0;
+      border-bottom: 1px solid #e2e8f0;
     }
+
+    section:last-of-type {
+      border-bottom: none;
+    }
+
     h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
       color: #0f172a;
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 0.3rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
     }
+
+    h2 i {
+      color: #3b82f6;
+      font-size: 1.6rem;
+    }
+
+    p {
+      color: #334155;
+      font-size: 1.05rem;
+    }
+
+    /* ===== LISTES ===== */
     ul {
       list-style: none;
-      padding-left: 0;
+      padding: 0;
     }
+
     li {
-      margin-bottom: 0.5rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid #f1f5f9;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 1rem;
     }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: #0f172a;
-      color: white;
+
+    li:last-child {
+      border-bottom: none;
     }
-    a {
-      color: #1e90ff;
-      text-decoration: none;
+
+    li i {
+      color: #3b82f6;
+      margin-top: 0.2rem;
+      min-width: 20px;
+    }
+
+    .skill-tag {
+      display: inline-block;
+      background: #e2e8f0;
+      padding: 0.2rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #1e293b;
+      margin-right: 0.4rem;
+    }
+
+    .skill-tag.blue {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    /* ===== PROJETS ===== */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      border: 1px solid #e2e8f0;
+      transition: all 0.25s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+      border-color: #b3d4ff;
+    }
+
+    .project-card i {
+      font-size: 1.8rem;
+      color: #3b82f6;
+      margin-bottom: 0.6rem;
+    }
+
+    .project-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .project-card p {
+      font-size: 0.9rem;
+      color: #475569;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .contact-links a {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 10px;
+      background: white;
+      padding: 0.6rem 1.4rem;
+      border-radius: 50px;
+      border: 1px solid #e2e8f0;
+      color: #1e293b;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+      text-decoration: none;
     }
-    a i {
-      color: #0f172a;
+
+    .contact-links a:hover {
+      background: #0f172a;
+      color: white;
+      border-color: #0f172a;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .contact-links a i {
       font-size: 1.2rem;
+      color: #3b82f6;
     }
-    a:hover i {
-      color: #1e90ff;
+
+    .contact-links a:hover i {
+      color: white;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      font-size: 0.9rem;
+      border-top: 1px solid #1e293b;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 640px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-links {
+        flex-direction: column;
+        align-items: stretch;
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
     <h1>Samakoun Kamissoko</h1>
-    <p>Futur ingénieur en cybersécurité | Passionné par les réseaux, l’IA & les systèmes complexes</p>
-    <img src="banner.png.png" alt="Bannière Samakoun Kamissoko">
+    <p>Futur ingénieur en cybersécurité · Réseaux · IA & systèmes complexes</p>
+
+    <div class="badge-container">
+      <span class="badge"><i class="fas fa-shield-alt"></i> Cybersécurité</span>
+      <span class="badge"><i class="fas fa-network-wired"></i> Réseaux avancés</span>
+      <span class="badge"><i class="fas fa-robot"></i> Robotique</span>
+      <span class="badge"><i class="fas fa-code"></i> C / Python / Java</span>
+    </div>
   </header>
 
-  <section>
-    <h2>À propos de moi</h2>
-    <p>Je suis étudiant en informatique avec une spécialisation en cybersécurité, réseaux avancés et intelligence artificielle. J’ai également suivi une formation de 3 mois en robotique au sein de l’Innovation Visionary Robotic Club de la Faculté des Sciences de l’Université Moulay Ismaïl à Meknès, ce qui m’a permis de renforcer mes compétences en systèmes embarqués et programmation de microcontrôleurs. </p>
-  </section>
+  <div class="container">
 
-  <section>
-    <h2>Compétences techniques</h2>
-    <ul>
-      <li><strong>Réseaux :</strong> IPv6, Cisco, TCP/IP, Routage, Sécurité</li>
-      <li><strong>Cybersécurité :</strong> IDS, VPN, Pare-feux, Vulnérabilités</li>
-      <li><strong>Langages :</strong> Python, Java, C, C++, JavaScript JEE</li>
-      <li><strong>Outils :</strong> Git, Wireshark, Packet Tracer, Docker, Linux</li>
-      <li><strong>Robotique :</strong> Capteurs, Arduino, programmation embarquée</li>
+    <!-- ===== À PROPOS ===== -->
+    <section>
+      <h2><i class="fas fa-user-astronaut"></i> À propos de moi</h2>
+      <p>
+        Je m’appelle <strong>Samakoun Kamissoko</strong>, étudiant en informatique passionné par la <strong>cybersécurité</strong>, les <strong>réseaux avancés</strong> et l’<strong>intelligence artificielle</strong>.
+        Mon parcours est marqué par une curiosité insatiable pour les systèmes complexes et une volonté constante de comprendre comment les choses fonctionnent en profondeur.
+      </p>
+      <p>
+        J’ai eu l’opportunité de suivre une formation en robotique au sein de l’<strong>Innovation Visionary Robotic Club</strong>
+        de la Faculté des Sciences de l’Université Moulay Ismaïl à Meknès. Cette expérience m’a permis de développer des compétences en <strong>systèmes embarqués</strong>, en <strong>programmation de microcontrôleurs</strong> et en <strong>travail d’équipe</strong> sur des projets concrets.
+      </p>
+      <p>
+        Ce qui me motive aujourd’hui, c’est de <strong>mettre la technologie au service de la sécurité</strong> : anticiper les menaces, analyser les failles, concevoir des systèmes robustes et accessibles. 
+      </p>
+      <p>
+        En dehors du code, je suis un esprit créatif, curieux de tout, toujours en quête de nouveaux défis. J’aime partager ce que j’apprends, et je crois fermement que la meilleure façon de maîtriser un sujet, c’est encore de l’enseigner.
+      </p>
+    </section>
 
-    </ul>
-  </section>
-<section>
-  <h2>Expériences professionnelles</h2>
-  <ul>
-    <li><strong>Technicien réseau</strong> – Pijitel, Meknès Hamria (6 mois)<br>
-      Installation, configuration et maintenance des équipements réseau, assistance technique aux utilisateurs.
-    </li>
-    <li><strong>Employé polyvalent</strong> – Carrefour Market, Maroc<br>
-      Accueil client, gestion de stock et tenue de caisse.
-    </li>
-    <li><strong>Secrétaire</strong> – LP Défi, Bamako (Mali)<br>
-      Gestion des documents administratifs, accueil physique et téléphonique.
-    </li>
-  </ul>
-</section>
+    <!-- ===== COMPÉTENCES ===== -->
+    <section>
+      <h2><i class="fas fa-microchip"></i> Compétences techniques</h2>
+      <ul>
+        <li><i class="fas fa-network-wired"></i> <strong>Réseaux :</strong> IPv6, Cisco, TCP/IP, routage, sécurité réseau</li>
+        <li><i class="fas fa-shield-alt"></i> <strong>Cybersécurité :</strong> IDS, VPN, pare-feux, analyse de vulnérabilités</li>
+        <li><i class="fas fa-code"></i> <strong>Langages :</strong> Python, Java, C, C++, JavaScript, JEE</li>
+        <li><i class="fas fa-tools"></i> <strong>Outils :</strong> Git, Wireshark, Packet Tracer, Docker, Linux</li>
+        <li><i class="fas fa-microchip"></i> <strong>Robotique :</strong> Capteurs, Arduino, programmation embarquée</li>
+      </ul>
+    </section>
 
-  <section>
-  <h2>Certifications & Formations complémentaires</h2>
-  <ul>
-    <li>✔️ Formation en anglais – Cambridge Global Executive College (Accra[Ghana])</li>
-    <li>✔️ Cisco Packet Tracer – Utilisation avancée</li>
-    <li>✔️ Introduction à la cybersécurité – Udemy (en cours)</li>
-     <li>🤖 Formation en robotique – IVR Club, Faculté des Sciences de l’Université Moulay Ismaïl, Meknès</li>
-  </ul>
-</section>
-<section>
-  <h2>Langues</h2>
-  <ul>
-    <li>🇫🇷 Français : Langue maternelle</li>
-    <li>🇬🇧 Anglais : Niveau B2+ (certifié)</li>
-  </ul>
-</section>
+    <!-- ===== EXPÉRIENCES ===== -->
+    <section>
+      <h2><i class="fas fa-briefcase"></i> Expériences professionnelles</h2>
+      <ul>
+        <li>
+          <i class="fas fa-building"></i>
+          <div>
+            <strong>Technicien réseau</strong> – Pijitel, Meknès Hamria (6 mois)<br>
+            <span style="color:#475569; font-size:0.95rem;">Installation, configuration et maintenance des équipements réseau, assistance technique aux utilisateurs.</span>
+          </div>
+        </li>
+        <li>
+          <i class="fas fa-store"></i>
+          <div>
+            <strong>Employé polyvalent</strong> – Carrefour Market, Maroc<br>
+            <span style="color:#475569; font-size:0.95rem;">Accueil client, gestion de stock et tenue de caisse.</span>
+          </div>
+        </li>
+        <li>
+          <i class="fas fa-file-alt"></i>
+          <div>
+            <strong>Secrétaire</strong> – LP Défi, Bamako (Mali)<br>
+            <span style="color:#475569; font-size:0.95rem;">Gestion des documents administratifs, accueil physique et téléphonique.</span>
+          </div>
+        </li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Projets récents</h2>
-    <ul>
-      <li>🛡️ IDS intelligent basé IA (en cours)</li>
-       <li>📦 Application de gestion de projets (Java / MVC / Méthodes agiles)</li>
-       <li>🧩 Modélisation UML et conception orientée objet Génie logiciel)</li>
-      <li>🌐 Routage IPv6 sur Cisco Packet Tracer</li>
-      <li>📊 Analyse de paquets réseau avec Wireshark</li>
-      <li>📹 Création de tutoriels vidéo sur YouTube pour enseigner les bases du langage JavaScript (projet supprimé)</li>
-      <li>🔄 Développement collaboratif d’une application orientée objet</li>
-    </ul>
-  </section>
+    <!-- ===== CERTIFICATIONS ===== -->
+    <section>
+      <h2><i class="fas fa-certificate"></i> Certifications & Formations</h2>
+      <ul>
+        <li><i class="fas fa-check-circle"></i> Formation en anglais – Cambridge Global Executive College (Accra, Ghana)</li>
+        <li><i class="fas fa-check-circle"></i> Cisco Packet Tracer – Utilisation avancée</li>
+        <li><i class="fas fa-check-circle"></i> Introduction à la cybersécurité – Udemy (en cours)</li>
+        <li><i class="fas fa-check-circle"></i> Formation en robotique – IVR Club, Faculté des Sciences, Meknès</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Me contacter</h2>
-    <p>
-      📧 Email : sk7706688@gmail.com<br><br>
-       <a href="https://github.com/Samakoun-dev" target="_blank">
-    <i class="fab fa-github"></i> GitHub
-  </a>
+    <!-- ===== LANGUES ===== -->
+    <section>
+      <h2><i class="fas fa-language"></i> Langues</h2>
+      <ul>
+        <li><i class="fas fa-flag"></i> <strong>Français :</strong> Langue maternelle</li>
+        <li><i class="fas fa-flag"></i> <strong>Anglais :</strong> Niveau B2+ (certifié)</li>
+      </ul>
+    </section>
 
-  <a href="https://www.linkedin.com/in/samakoun-kamissoko-a25248355" target="_blank">
-    <i class="fab fa-linkedin"></i> LinkedIn
-  </a>
+    <!-- ===== PROJETS ===== -->
+    <section>
+      <h2><i class="fas fa-laptop-code"></i> Projets récents</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <i class="fas fa-robot"></i>
+          <h3>IDS intelligent basé IA</h3>
+          <p>Système de détection d'intrusions utilisant l'intelligence artificielle (en cours).</p>
+        </div>
+        <div class="project-card">
+          <i class="fas fa-cubes"></i>
+          <h3>Gestion de projets (Java / MVC)</h3>
+          <p>Application de gestion de projets avec architecture MVC et méthodes agiles.</p>
+        </div>
+        <div class="project-card">
+          <i class="fas fa-diagram-project"></i>
+          <h3>Modélisation UML</h3>
+          <p>Conception orientée objet pour des applications en génie logiciel.</p>
+        </div>
+        <div class="project-card">
+          <i class="fas fa-globe"></i>
+          <h3>Routage IPv6 sur Cisco</h3>
+          <p>Simulation de réseaux IPv6 sur Packet Tracer.</p>
+        </div>
+        <div class="project-card">
+          <i class="fas fa-wifi"></i>
+          <h3>Analyse réseau avec Wireshark</h3>
+          <p>Capture et analyse de paquets pour détecter des anomalies.</p>
+        </div>
+        <div class="project-card">
+          <i class="fas fa-video"></i>
+          <h3>Tutoriels JavaScript (YouTube)</h3>
+          <p>Création de tutoriels vidéo (projet archivé).</p>
+        </div>
+      </div>
+    </section>
 
-  <a href="https://www.instagram.com/skamiss_" target="_blank">
-    <i class="fab fa-instagram"></i> Instagram
-  </a>
+    <!-- ===== CONTACT ===== -->
+    <section>
+      <h2><i class="fas fa-envelope"></i> Me contacter</h2>
+      <p style="margin-bottom: 1rem;">
+        📧 <strong>sk7706688@gmail.com</strong>
+      </p>
+      <div class="contact-links">
+        <a href="https://github.com/Samakoun-dev" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://www.linkedin.com/in/samakoun-kamissoko-a25248355" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://www.instagram.com/skamiss_" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="https://www.snapchat.com/add/skamiss02" target="_blank"><i class="fab fa-snapchat-ghost"></i> Snapchat</a>
+      </div>
+    </section>
 
-  <a href="https://www.snapchat.com/add/skamiss02" target="_blank">
-    <i class="fab fa-snapchat-ghost"></i> Snapchat
-  </a>     
-    </p>
-  </section>
+  </div>
 
   <footer>
-    <p>© 2025 Samakoun Kamissoko | Portfolio</p>
+    <p>© 2025 <strong>Samakoun Kamissoko</strong> — Portfolio</p>
   </footer>
+
 </body>
 </html>
