@@ -462,6 +462,28 @@
     body.dark-mode .lang-switch {
       border-color: #334155;
     }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 15px;
+    }
+  
+    .project-tags span {
+      font-size: 0.75rem;
+      padding: 5px 10px;
+      border-radius: 20px;
+      background: rgba(0, 150, 255, 0.12);
+      border: 1px solid rgba(0, 150, 255, 0.3);
+    }
+  
+    .project-status {
+      display: inline-block;
+      margin-top: 15px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      opacity: 0.8;
+    }
   </style>
 </head>
 <body>
@@ -659,17 +681,209 @@
   </section>
 
   <!-- ===== PROJETS ===== -->
-  <section class="fade-in">
-    <h2><i class="fas fa-laptop-code"></i> <span class="fr">Projets récents</span><span class="en" style="display:none;">Recent Projects</span></h2>
-    <div class="project-grid">
-      <div class="project-card"><i class="fas fa-robot"></i><h3>IDS intelligent basé IA</h3><p>Détection d’intrusions avec apprentissage automatique (en cours).</p></div>
-      <div class="project-card"><i class="fas fa-cubes"></i><h3>Gestion de projets (Java/MVC)</h3><p>Application avec architecture MVC et méthodes agiles.</p></div>
-      <div class="project-card"><i class="fas fa-diagram-project"></i><h3>Modélisation UML</h3><p>Conception orientée objet pour le génie logiciel.</p></div>
-      <div class="project-card"><i class="fas fa-globe"></i><h3>Routage IPv6 sur Cisco</h3><p>Simulation de réseaux complexes avec Packet Tracer.</p></div>
-      <div class="project-card"><i class="fas fa-wifi"></i><h3>Analyse réseau avec Wireshark</h3><p>Capture et analyse de paquets pour la détection d’anomalies.</p></div>
-      <div class="project-card"><i class="fas fa-video"></i><h3>Tutoriels YouTube</h3><p>Création de contenus pédagogiques sur JavaScript (projet archivé).</p></div>
+<section class="fade-in" id="projects">
+  <h2>
+    <i class="fas fa-laptop-code"></i>
+    <span class="fr">Projets récents</span>
+    <span class="en" style="display:none;">Featured Projects</span>
+  </h2>
+
+  <div class="project-grid">
+
+    <!-- PROJET 1 : IDS -->
+    <div class="project-card">
+      <i class="fas fa-shield-alt"></i>
+
+      <h3 class="fr">Système intelligent de détection d'intrusions (IDS)</h3>
+      <h3 class="en" style="display:none;">Intelligent Intrusion Detection System (IDS)</h3>
+
+      <p class="fr">
+        Projet de fin d'études consacré à la conception d'un système
+        de détection d'intrusions réseau basé sur le Machine Learning.
+        Entraînement et comparaison des modèles Random Forest, SVM,
+        MLP et KNN à partir du jeu de données NSL-KDD.
+        Développement d'une interface graphique avec Python et Tkinter.
+      </p>
+
+      <p class="en" style="display:none;">
+        Final-year project focused on designing a network intrusion
+        detection system using Machine Learning. Training and comparison
+        of Random Forest, SVM, MLP and KNN models using the NSL-KDD
+        dataset. Development of a graphical interface with Python and Tkinter.
+      </p>
+
+      <div class="project-tags">
+        <span>Python</span>
+        <span>Machine Learning</span>
+        <span>Scikit-learn</span>
+        <span>Cybersecurity</span>
+      </div>
+
+      <span class="project-status fr">Projet réalisé – 2025</span>
+      <span class="project-status en" style="display:none;">Completed – 2025</span>
     </div>
-  </section>
+
+
+    <!-- PROJET 2 : JAVA MVC -->
+    <div class="project-card">
+      <i class="fas fa-cubes"></i>
+
+      <h3 class="fr">Application de gestion de projets – Java/MVC</h3>
+      <h3 class="en" style="display:none;">Project Management Application – Java/MVC</h3>
+
+      <p class="fr">
+        Développement d'une application Java structurée selon
+        l'architecture Modèle-Vue-Contrôleur (MVC).
+        Mise en pratique de la programmation orientée objet,
+        de la séparation des responsabilités et des principes
+        du génie logiciel.
+      </p>
+
+      <p class="en" style="display:none;">
+        Development of a Java application based on the
+        Model-View-Controller (MVC) architecture.
+        Implementation of object-oriented programming,
+        separation of concerns and software engineering principles.
+      </p>
+
+      <div class="project-tags">
+        <span>Java</span>
+        <span>MVC</span>
+        <span>OOP</span>
+        <span>Software Engineering</span>
+      </div>
+
+      <span class="project-status fr">Projet académique</span>
+      <span class="project-status en" style="display:none;">Academic Project</span>
+    </div>
+
+
+    <!-- PROJET 3 : UML -->
+    <div class="project-card">
+      <i class="fas fa-diagram-project"></i>
+
+      <h3 class="fr">Modélisation et conception UML</h3>
+      <h3 class="en" style="display:none;">UML Modeling and Design</h3>
+
+      <p class="fr">
+        Conception et modélisation de systèmes informatiques
+        à l'aide d'UML. Réalisation de diagrammes pour représenter
+        les fonctionnalités, les interactions et la structure
+        des applications.
+      </p>
+
+      <p class="en" style="display:none;">
+        Design and modeling of information systems using UML.
+        Creation of diagrams to represent application features,
+        interactions and structure.
+      </p>
+
+      <div class="project-tags">
+        <span>UML</span>
+        <span>Software Design</span>
+        <span>OOP</span>
+      </div>
+
+      <span class="project-status fr">Projet académique</span>
+      <span class="project-status en" style="display:none;">Academic Project</span>
+    </div>
+
+
+    <!-- PROJET 4 : IPV6 -->
+    <div class="project-card">
+      <i class="fas fa-network-wired"></i>
+
+      <h3 class="fr">Configuration et routage IPv6</h3>
+      <h3 class="en" style="display:none;">IPv6 Configuration and Routing</h3>
+
+      <p class="fr">
+        Conception et simulation d'une infrastructure réseau
+        IPv6 avec Cisco Packet Tracer. Configuration de
+        l'adressage IP, des équipements réseau et du routage
+        entre différents sous-réseaux.
+      </p>
+
+      <p class="en" style="display:none;">
+        Design and simulation of an IPv6 network infrastructure
+        using Cisco Packet Tracer. Configuration of IP addressing,
+        network devices and routing between different subnets.
+      </p>
+
+      <div class="project-tags">
+        <span>IPv6</span>
+        <span>TCP/IP</span>
+        <span>Cisco Packet Tracer</span>
+        <span>Networking</span>
+      </div>
+
+      <span class="project-status fr">Travaux pratiques</span>
+      <span class="project-status en" style="display:none;">Practical Work</span>
+    </div>
+
+
+    <!-- PROJET 5 : WIRESHARK -->
+    <div class="project-card">
+      <i class="fas fa-wifi"></i>
+
+      <h3 class="fr">Analyse du trafic réseau avec Wireshark</h3>
+      <h3 class="en" style="display:none;">Network Traffic Analysis with Wireshark</h3>
+
+      <p class="fr">
+        Capture et analyse de paquets réseau avec Wireshark.
+        Observation des communications, identification des protocoles
+        et utilisation de filtres pour examiner les échanges réseau.
+      </p>
+
+      <p class="en" style="display:none;">
+        Network packet capture and analysis using Wireshark.
+        Observation of communications, protocol identification
+        and use of filters to inspect network traffic.
+      </p>
+
+      <div class="project-tags">
+        <span>Wireshark</span>
+        <span>TCP/IP</span>
+        <span>Network Analysis</span>
+      </div>
+
+      <span class="project-status fr">Travaux pratiques</span>
+      <span class="project-status en" style="display:none;">Practical Work</span>
+    </div>
+
+
+    <!-- PROJET 6 : DEVELOPPEMENT WEB -->
+    <div class="project-card">
+      <i class="fas fa-code"></i>
+
+      <h3 class="fr">Développement web</h3>
+      <h3 class="en" style="display:none;">Web Development</h3>
+
+      <p class="fr">
+        Réalisation de projets web mettant en pratique
+        la création d'interfaces, la structuration des pages
+        et l'intégration de fonctionnalités côté client
+        et côté serveur.
+      </p>
+
+      <p class="en" style="display:none;">
+        Development of web projects involving interface design,
+        page structure and implementation of client-side
+        and server-side features.
+      </p>
+
+      <div class="project-tags">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>PHP</span>
+      </div>
+
+      <span class="project-status fr">Projets personnels et académiques</span>
+      <span class="project-status en" style="display:none;">Personal and Academic Projects</span>
+    </div>
+
+  </div>
+</section>
 
   <!-- ===== CONTACT ===== -->
   <section class="fade-in">
